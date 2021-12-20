@@ -21,6 +21,7 @@
 
     ```sh
     make up # собрать проект в docker-контейнере
+    make start # запустить приложение dashboard: http://localhost:8888/public/, api: http://localhost:8888/public/api/news/{service}
     make down # остановить docker-контейнер
     make compose-bash  # запустить сессию bash в docker-контейнере
     ```
