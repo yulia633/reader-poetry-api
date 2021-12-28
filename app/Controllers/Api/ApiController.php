@@ -8,7 +8,7 @@ use Psr\Http\Message\{
     ResponseInterface as Response
 };
 
-class NewsController extends Controller
+class ApiController extends Controller
 {
     public function show(Request $request, Response $response, $args)
     {

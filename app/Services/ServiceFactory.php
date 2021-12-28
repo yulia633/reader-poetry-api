@@ -2,8 +2,19 @@
 
 namespace App\Services;
 
+use App\Services\Poetry;
+use App\Services\Transformers\PoetryTransformer;
+use GuzzleHttp\Client as Guzzle;
+
 class ServiceFactory
 {
+    protected $client;
+
+    public function __construct(Guzzle $client)
+    {
+        $this->client = $client;
+    }
+
     public function get($service, $limit = 10)
     {
         if (method_exists($this, $service)) {
@@ -11,8 +22,10 @@ class ServiceFactory
         }
     }
 
-    protected function hackernews($limit = 10)
+    protected function poetry($limit = 10)
     {
-        return 'hackernews';
+        $data = (new Poetry($this->client))->get($limit);
+
+        return (new PoetryTransformer($data))->create();
     }
 }

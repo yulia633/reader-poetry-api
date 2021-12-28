@@ -1,7 +1,7 @@
 <?php
 
-use App\Controllers\Api\NewsController;
+use App\Controllers\Api\ApiController;
 
 $app->group('/api', function () {
-    $this->get('/news/{service}', NewsController::class . ':show');
+    $this->get('/texts/{service}', ApiController::class . ':show');
 });
