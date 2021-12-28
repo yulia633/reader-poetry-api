@@ -18,7 +18,9 @@ class ServiceFactory
     public function get($service, $limit = 10)
     {
         if (method_exists($this, $service)) {
-            return $this->{$service}($limit);
+            return $this->sortResponseByLinecount(
+                $this->{$service}($limit)
+            );
         }
     }
 
@@ -27,5 +29,14 @@ class ServiceFactory
         $data = (new Poetry($this->client))->get($limit);
 
         return (new PoetryTransformer($data))->create();
+    }
+
+    protected function sortResponseByLinecount(array $data)
+    {
+        usort($data, function ($a, $b) {
+            return $a['linecount'] - $b['linecount'];
+        });
+
+        return $data;
     }
 }
