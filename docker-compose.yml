@@ -24,7 +24,14 @@ services:
     ports:
       - 54320:5432
     volumes:
-    - task-manager-pgdata:/var/lib/postgresql/data
+    - reader-pgdata:/var/lib/postgresql/data
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    restart: unless-stopped
+    ports:
+      - 6379:6379
 
   adminer:
     image: adminer:latest
@@ -36,4 +43,4 @@ services:
       ADMINER_DEFAULT_SERVER: database
 
 volumes:
-  task-manager-pgdata:
+  reader-pgdata:

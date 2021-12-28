@@ -24,4 +24,5 @@
     make start # запустить приложение dashboard: http://localhost:8888/public/, api: http://localhost:8888/public/api/texts/{service}
     make down # остановить docker-контейнер
     make compose-bash  # запустить сессию bash в docker-контейнере
+    docker exec -it redis redis-cli # открыть новую сессию и интерфейс командной строки в docker-контейнере
     ```

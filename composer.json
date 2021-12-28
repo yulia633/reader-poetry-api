@@ -11,7 +11,8 @@
         "symfony/var-dumper": "^3.2",
         "vlucas/phpdotenv": "^2.4",
         "php-di/php-di": "^6.3",
-        "guzzlehttp/guzzle": "^7.4"
+        "guzzlehttp/guzzle": "^7.4",
+        "predis/predis": "^1.1"
     },
     "autoload": {
         "psr-4": {
