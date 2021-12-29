@@ -26,9 +26,7 @@ class ServiceFactory
     public function get($service, $limit = 10)
     {
         if (method_exists($this, $service) && $this->serviceIsEnabled($service)) {
-            return $this->sortResponseByLinecount(
-                $this->{$service}($limit)
-            );
+            return $this->{$service}($limit);
         }
 
         return [];
