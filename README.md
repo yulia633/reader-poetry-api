@@ -27,3 +27,13 @@
     make compose-bash  # запустить сессию bash в docker-контейнере
     docker exec -it redis redis-cli # открыть новую сессию и интерфейс командной строки redis в docker-контейнере
     ```
+
+### To-do
+
+- [ ] GitHub Actions
+- [ ] Tests
+- [ ] Code Sniffer
+- [ ] Pagination
+- [x] Redis
+- [ ] New Service
+- [x] Front dashboard
