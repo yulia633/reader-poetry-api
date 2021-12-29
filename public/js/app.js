@@ -9,7 +9,7 @@ var app = new Vue({
         load (service) {
             this.loading = true
 
-            axios.get('/julbel-api-poetry.herokuapp.com/api/texts/' + service).then((response) => {
+            axios.get('/public/api/texts/' + service).then((response) => {
                 this.items = response.data
                 this.loading = false
             })
