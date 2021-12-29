@@ -1,5 +1,20 @@
 {% extends 'app.twig' %}
 
 {% block content %}
-    Hello from {{ appName }}!
+    <div class="loading" v-if="loading">
+        One moment
+    </div>
+    <div class="item" v-for="item in items" v-else>
+        <div class="item__author">
+            ${item.author}
+        </div>
+        <h3 class="item__title">
+        <ul class=item-link>
+                <p class=item.link">${item.title}</p>
+                <pre>
+                    <p class=item.link">${item.lines}</p>
+                </pre>
+         </ul>
+        </h3>
+    </div>
 {% endblock %}
