@@ -4,7 +4,7 @@ namespace App\Services;
 
 class Poetry extends ServiceAbstract
 {
-    public function get($limit = 10)
+    public function get($limit = 30)
     {
         $response = $this->client->request('GET', 'https://poetrydb.org/author');
         $ids = json_decode($response->getBody());

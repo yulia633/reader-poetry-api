@@ -23,7 +23,7 @@ class ServiceFactory
         $this->cache = $cache;
     }
 
-    public function get($service, $limit = 10)
+    public function get($service, $limit = 30)
     {
         if (method_exists($this, $service) && $this->serviceIsEnabled($service)) {
             return $this->{$service}($limit);
@@ -32,9 +32,9 @@ class ServiceFactory
         return [];
     }
 
-    protected function poetry($limit = 10)
+    protected function poetry($limit = 30)
     {
-        $data = $this->cache->remember('poetry', 10, function () use ($limit) {
+        $data = $this->cache->remember('poetry', 30, function () use ($limit) {
             return json_encode((new Poetry($this->client))->get($limit));
         });
 
